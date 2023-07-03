@@ -12,7 +12,6 @@ public class FileServer {
                 Socket clientSocket = serverSocket.accept();
                 System.out.println("Cliente conectado: " + clientSocket.getInetAddress().getHostAddress());
 
-                // Manejar la solicitud del cliente en un hilo separado
                 ClientHandler clientHandler = new ClientHandler(clientSocket);
                 Thread thread = new Thread(clientHandler);
                 thread.start();
